@@ -21,6 +21,10 @@
 # lines, full and maguro, hence its name.
 #
 
+# Device Specific Apps
+PRODUCT_PACKAGES := \
+    GNexusParts
+
 # Get the long list of APNs
 PRODUCT_COPY_FILES := device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
 
