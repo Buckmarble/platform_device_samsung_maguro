@@ -26,26 +26,40 @@
 # 262866 = IMM30D
 # 299849 = IMM76D
 # end ics-mr1
-# start jellybean
+# start jb-dev
 # 241580 = IRL89
 # 241968 = IRM03
-# end jellybean
-BRANCH=jellybean
+# 391496 = JRN83D
+# 397816 = JRO03B
+# 398337 = JRO03C
+# 405518 = JRO03H
+# 438695 = JRO03R
+# 463694 = JZO54G
+# end jb-dev
+# start jb-mr1-dev
+# 465036 = JOO75
+# end jb-mr1-dev
+BRANCH=jb-mr1-dev
 if test $BRANCH=ics-mr1
 then
   ZIP=yakju-ota-299849.zip
   BUILD=imm76d
 fi # ics-mr1
-if test $BRANCH=jellybean
+if test $BRANCH=jb-dev
 then
-  ZIP=yakju-ota-241968.zip
-  BUILD=irm03
-fi # jellybean
+  ZIP=yakju-ota-463694.zip
+  BUILD=jzo54g
+fi # jb-dev
+if test $BRANCH=jb-mr1-dev
+then
+  ZIP=yakju-ota-465036.zip
+  BUILD=joo75
+fi # jb-mr1-dev
 ROOTDEVICE=maguro
 DEVICE=maguro
 MANUFACTURER=samsung
 
-for COMPANY in broadcom csr imgtec invensense nxp samsung ti
+for COMPANY in broadcom csr imgtec invensense nxp samsung ti widevine
 do
   echo Processing files from $COMPANY
   rm -rf tmp
@@ -56,6 +70,7 @@ do
   broadcom)
     TO_EXTRACT="\
             system/vendor/firmware/bcm4330.hcd \
+            system/vendor/lib/libbt-vendor.so \
             "
     ;;
   csr)
@@ -101,6 +116,11 @@ do
   ti)
     TO_EXTRACT="\
             system/vendor/firmware/ducati-m3.bin \
+            "
+    ;;
+  widevine)
+    TO_EXTRACT="\
+            system/lib/libdrmdecrypt.so \
             "
     ;;
   esac

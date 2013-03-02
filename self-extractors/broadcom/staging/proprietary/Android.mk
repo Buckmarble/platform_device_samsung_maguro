@@ -26,4 +26,17 @@ LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR)/firmware
 include $(BUILD_PREBUILT)
 
+<<<<<<< HEAD
+=======
+include $(CLEAR_VARS)
+LOCAL_MODULE := libbt-vendor
+LOCAL_MODULE_OWNER := broadcom
+LOCAL_SRC_FILES := libbt-vendor.so
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_SUFFIX := .so
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)
+include $(BUILD_PREBUILT)
+
+>>>>>>> remotes/aosp/jb-mr1-release
 endif
